@@ -10,13 +10,15 @@ Baca berurutan:
 2. [Catatan keputusan](DECISIONS.md).
 3. [Instruksi repositori untuk agent](../AGENTS.md).
 
-Dokumen bisnis tidak menetapkan Flutter, framework web, bahasa server, database, penyedia hosting, atau metode autentikasi tertentu. Pilihan stack dilakukan berdasarkan kebutuhan proyek ini, bukan disalin dari proyek pengguna yang lain.
+Stack telah disepakati oleh pemilik produk: **Laravel + Vue.js + Inertia.js + MySQL** (D-29). Laravel menangani route/controller, logika bisnis, validasi, autentikasi, otorisasi, dan akses data. Vue.js membangun komponen halaman, sementara Inertia.js menghubungkannya dengan Laravel. Data aplikasi disimpan di MySQL.
+
+Versi Laravel, Vue.js, Inertia.js, MySQL, PHP, dan Node.js belum dipin. Saat penyiapan fondasi, pilih versi yang saling kompatibel dan catat kebutuhan runtime serta dependensinya. Penyedia hosting, metode autentikasi, penyimpanan berkas, backup, dan retensi masih perlu dirancang; keputusan stack tidak berarti environment sudah terpasang atau aplikasi sudah dapat dijalankan.
 
 ## 2. Langkah awal di VS Code
 
 1. Clone repositori `https://github.com/poycode352026/tong-yi-group.git` dan buka folder tersebut di VS Code.
 2. Gunakan Codex pada folder repositori yang sama agar agent dapat membaca instruksi dan dokumentasi.
-3. Mulai dengan penilaian fondasi teknis, lalu putuskan stack bersama pemilik produk.
+3. Periksa prasyarat dan siapkan fondasi Laravel + Vue.js + Inertia.js + MySQL sesuai D-29; tetapkan versi yang kompatibel dan konfigurasi pengembangan.
 4. Rancang modul program dan model datanya sebelum membangun modul operasional lain.
 5. Kerjakan satu perubahan yang dapat diperiksa; cocokkan hasil dengan aturan dan skenario penerimaan.
 
@@ -26,7 +28,7 @@ Jika repositori nantinya sudah berisi aplikasi, baca kode dan instruksi terbarun
 
 | Tahap | Hasil konkret | Batas dan verifikasi |
 |---|---|---|
-| 0. Fondasi | Pilihan stack, struktur repositori, lingkungan lokal, autentikasi/otorisasi dasar, strategi database/berkas | Keputusan stack didokumentasikan; aplikasi lokal dapat dijalankan |
+| 0. Fondasi | Laravel + Vue.js + Inertia.js + MySQL, versi/runtime yang kompatibel, struktur repositori, lingkungan lokal, autentikasi/otorisasi dasar, strategi database/berkas | Aplikasi lokal dapat dijalankan, halaman Vue melalui Inertia tampil, dan koneksi serta migrasi MySQL diverifikasi |
 | 1. Admin program | Tabel program, tambah/ubah halaman penuh, subprogram, level, layanan opsional, kurikulum per paket/sesi, draf | AC-01–AC-09; data benar-benar persisten sesuai desain yang dipilih |
 | 2. Kualifikasi guru | Profil, dokumen, pemeriksaan izin, perluasan, kesediaan, pelatihan/asesmen | AC-10–AC-12; pembayaran tidak otomatis meluluskan |
 | 3. Kelas dan pendaftaran | Izin guru → pengajuan kelas → persetujuan → pendaftaran siswa | Detail layanan/jadwal/lokasi/kuota konsisten dengan katalog; algoritma penempatan menunggu kebijakan |
@@ -86,7 +88,7 @@ Rekomendasi teknis ini bukan skema database final. Dokumentasikan keputusan desa
 
 ## 7. Contoh instruksi awal untuk Codex
 
-> Baca AGENTS.md, docs/BRD.md, docs/DECISIONS.md, dan docs/IMPLEMENTATION_GUIDE.md. Periksa kondisi repositori saat ini. Kita mengembangkan Tong Yi Group secara bertahap di VS Code, dimulai dari Admin Program. Jelaskan pilihan fondasi teknis yang perlu diputuskan dan rancangan data/logika modul pertama. Gunakan keputusan yang sudah disepakati, tandai kebijakan terbuka, dan jangan menganggap prototipe atau angka contohnya sebagai spesifikasi final. Setelah arah teknis disepakati, implementasikan tahap pertama secara utuh dan verifikasi skenario penerimaannya.
+> Baca AGENTS.md, docs/BRD.md, docs/DECISIONS.md, dan docs/IMPLEMENTATION_GUIDE.md. Periksa kondisi repositori saat ini. Kita mengembangkan Tong Yi Group secara bertahap di VS Code, dimulai dari Admin Program. Gunakan Laravel + Vue.js + Inertia.js + MySQL sesuai D-29. Jelaskan detail fondasi teknis yang masih perlu diputuskan serta rancangan data/logika modul pertama. Gunakan keputusan yang sudah disepakati, tandai kebijakan terbuka, dan jangan menganggap prototipe atau angka contohnya sebagai spesifikasi final. Setelah detail rancangan yang diperlukan disepakati, implementasikan tahap pertama secara utuh dan verifikasi skenario penerimaannya.
 
 ## 8. Definisi selesai untuk suatu tahap
 

@@ -8,7 +8,8 @@ Baca `docs/BRD.md`, `docs/DECISIONS.md`, dan `docs/IMPLEMENTATION_GUIDE.md` sebe
 
 - Pengembangan dilakukan bersama pengguna di VS Code menggunakan Codex.
 - Prioritas awal adalah Admin Tong Yi, terutama pengelolaan program.
-- Stack teknologi belum diputuskan dalam dokumentasi awal. Jangan mengambil stack dari proyek pengguna lain tanpa dasar.
+- Stack yang disepakati: Laravel untuk sisi server, Vue.js untuk antarmuka, Inertia.js sebagai penghubung halaman Vue dengan route/controller Laravel, dan MySQL sebagai basis data.
+- Gunakan stack tersebut sebagai acuan pengembangan. Versi dependensi dan detail infrastruktur ditetapkan saat penyiapan fondasi; jangan mengganti stack tanpa keputusan pengguna.
 - Jika kode aplikasi sudah ada, periksa fondasi yang digunakan sebelum mengubah arsitektur.
 
 ## Aturan bisnis yang wajib dijaga

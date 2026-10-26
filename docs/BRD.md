@@ -2,7 +2,7 @@
 
 | Atribut | Nilai |
 |---|---|
-| Versi | 0.1 — draf acuan pengembangan |
+| Versi | 0.2 — draf acuan pengembangan dengan stack disepakati |
 | Tanggal | 26 Oktober 2026 |
 | Bahasa | Bahasa Indonesia |
 | Dasar | Keputusan dan koreksi pemilik produk dalam pembahasan 25–26 Oktober 2026 yang tersedia |
@@ -89,11 +89,17 @@ Daftar ini adalah cakupan kebutuhan produk, bukan janji semua modul selesai pada
 - Penerbitan sertifikat HSK resmi oleh sistem Tong Yi.
 - Migrasi data dari sumber yang belum diidentifikasi.
 - Penetapan otomatis kemampuan guru hanya berdasarkan unggahan atau pembayaran.
-- Aplikasi native dan stack teknologi tertentu; keputusan teknis belum dibuat melalui BRD ini.
+- Aplikasi native; implementasi awal menggunakan aplikasi web dengan stack yang disepakati pada bagian 4.4.
 
 ### 4.3 Fokus iterasi pertama
 
 Ruang Admin dan pengelolaan program menjadi prioritas pertama. Cakupan iterasi berikutnya mengikuti [panduan pengembangan](IMPLEMENTATION_GUIDE.md).
+
+### 4.4 Stack teknologi — Disepakati
+
+Mengacu pada D-29, aplikasi menggunakan **Laravel + Vue.js + Inertia.js + MySQL**. Laravel menangani sisi server dan aturan bisnis; Vue.js menyediakan antarmuka berbasis komponen; Inertia.js menghubungkan halaman Vue dengan route/controller Laravel; MySQL menyimpan data terstruktur.
+
+Keputusan ini tidak mengubah aturan bisnis atau skenario penerimaan. Versi teknologi, konfigurasi deployment, detail autentikasi, penyimpanan berkas, backup, dan retensi masih perlu ditetapkan sesuai O-22.
 
 ## 5. Pemangku kepentingan dan peran
 
@@ -451,7 +457,7 @@ Target performa, SLA aplikasi, retensi berkas, lokasi data, dan kebijakan privas
 
 ## 17. Kelompok data konseptual
 
-Bukan ERD final; nama tabel/teknologi belum ditentukan.
+Bukan ERD final; nama tabel dan skema relasional belum ditentukan. Basis data yang digunakan adalah MySQL sesuai D-29.
 
 | Kelompok | Data utama |
 |---|---|

@@ -1,6 +1,6 @@
 # Catatan Keputusan — Tong Yi Group
 
-Versi 0.1 · 26 Oktober 2026. Dibaca bersama [BRD](BRD.md).
+Versi 0.2 · 26 Oktober 2026. Dibaca bersama [BRD](BRD.md).
 
 ## 1. Keputusan yang menjadi acuan
 
@@ -34,6 +34,7 @@ Versi 0.1 · 26 Oktober 2026. Dibaca bersama [BRD](BRD.md).
 | D-26 | Klaim yang sama tidak dapat dicairkan dua kali; transfer dilakukan Admin dan dicatat dengan bukti |
 | D-27 | Batas pencairan hari operasional berikutnya; Minggu/tanggal merah dikecualikan, Sabtu dihitung |
 | D-28 | Pengembangan selanjutnya dilakukan bersama di VS Code menggunakan Codex; dokumentasi menjadi acuan implementasi |
+| D-29 | Stack aplikasi: Laravel, Vue.js, Inertia.js, dan MySQL; route/controller berada di Laravel dengan halaman Vue melalui Inertia |
 
 ## 2. Koreksi yang menggantikan usulan terdahulu
 
@@ -50,6 +51,7 @@ Versi 0.1 · 26 Oktober 2026. Dibaca bersama [BRD](BRD.md).
 | Pencairan 1×24 jam tanpa pengecualian | Hari operasional berikutnya, mengecualikan Minggu/tanggal merah |
 | Angka 70/30 menjadi default resmi | Menunggu konfirmasi perjanjian; angka itu tidak boleh di-hardcode |
 | Prototipe dianggap aplikasi yang harus diteruskan kodenya | Pengembangan bersama melalui VS Code/Codex mengacu pada kebutuhan bisnis |
+| Stack belum diputuskan; usulan React/Livewire dan PostgreSQL | Stack yang dipilih pengguna adalah Laravel + Vue.js + Inertia.js + MySQL |
 
 ## 3. Keputusan terbuka
 
@@ -76,7 +78,7 @@ Versi 0.1 · 26 Oktober 2026. Dibaca bersama [BRD](BRD.md).
 | O-19 | Jam batas klaim, sumber kalender libur, zona waktu operasional | Tanggal jatuh tempo pencairan |
 | O-20 | Hak koreksi data setelah klaim/pembayaran | Audit dan konsistensi keuangan |
 | O-21 | Kanal, penerima, dan frekuensi notifikasi | Pengingat sesuai otorisasi pengguna |
-| O-22 | Stack, deployment, database, berkas, autentikasi, backup, retensi | Desain teknis dan kesiapan produksi |
+| O-22 | Versi stack/runtime, deployment, konfigurasi MySQL, berkas, detail autentikasi, backup, retensi | Stack telah ditetapkan pada D-29; detail implementasi dan kesiapan produksi masih perlu dirancang |
 | O-23 | Versi harga/kurikulum dan kapan perubahan berlaku | Riwayat transaksi/kelas harus tetap benar |
 | O-24 | Target performa, aksesibilitas terukur, SLA, privasi operasional | Kriteria nonfungsional produksi |
 
@@ -85,3 +87,16 @@ Kebijakan terbuka boleh memiliki field konfigurasi kosong/draf. Keberadaan field
 ## 4. Format pencatatan perubahan berikutnya
 
 Setiap keputusan baru mencatat: ID, tanggal, keputusan, pihak yang menyetujui, alasan singkat, aturan lama yang diganti, kebutuhan/fitur terdampak, dan skenario penerimaan yang berubah. Perbarui BRD serta panduan terkait dalam perubahan yang sama jika relevan.
+
+## 5. Riwayat perubahan keputusan
+
+### D-29 — Penetapan stack aplikasi
+
+- **Tanggal:** 26 Oktober 2026.
+- **Disetujui oleh:** pemilik produk melalui percakapan pengembangan.
+- **Keputusan:** menggunakan Laravel, Vue.js, Inertia.js, dan MySQL.
+- **Alasan:** mengikuti pilihan teknologi yang dinyatakan langsung oleh pemilik produk sebagai acuan pengembangan.
+- **Menggantikan:** status stack belum diputuskan dan usulan sebelumnya yang menggunakan React, Livewire, atau PostgreSQL.
+- **Dampak:** fondasi aplikasi dan seluruh modul, dimulai dari Admin Program, menggunakan stack ini. O-22 tetap terbuka untuk detail implementasi dan infrastruktur.
+- **Skenario penerimaan:** AC-01–AC-26 tidak berubah; keputusan ini menetapkan teknologi implementasi tanpa mengubah aturan bisnis.
+- **Batas keputusan:** versi framework/runtime, penyedia hosting, metode autentikasi, dan strategi berkas/backup belum ditetapkan. Tahun pada uraian referensi teknologi bukan pin versi dependensi.
