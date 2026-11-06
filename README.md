@@ -28,12 +28,6 @@ Keputusan stack tercatat pada [D-29 dan D-30](docs/DECISIONS.md). Versi dependen
 
 Prioritas awal adalah ruang **Admin Tong Yi**, terutama pengelolaan program. Satu program dapat memiliki beberapa subprogram; setiap subprogram memiliki level/kurikulum dan hanya layanan yang benar-benar ditawarkan. Satu paket belajar normal terdiri dari delapan sesi.
 
-## Pengembangan di VS Code dengan Codex
-
-Clone repositori ini, buka foldernya di VS Code, lalu gunakan Codex untuk membaca [AGENTS.md](AGENTS.md) dan dokumen acuan. Pengembangan dilakukan bersama secara bertahap, dimulai dari fondasi teknis dan modul Admin Program.
-
-Prototipe yang pernah dibahas hanya referensi percobaan interaksi; pengembangan aplikasi mengacu pada kebutuhan bisnis, tanpa kewajiban menyalin kode atau membuat prototipe tambahan.
-
 ## Prinsip pengembangan
 
 - Jangan mengubah keputusan yang sudah disepakati tanpa mencatat perubahan.
