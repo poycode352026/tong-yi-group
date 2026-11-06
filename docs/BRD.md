@@ -2,7 +2,7 @@
 
 | Atribut | Nilai |
 |---|---|
-| Versi | 0.3 — draf acuan pengembangan dengan stack disepakati |
+| Versi | 0.4 — draf acuan pengembangan dengan identitas visual |
 | Tanggal | 6 November 2026 |
 | Bahasa | Bahasa Indonesia |
 | Dasar | Keputusan dan koreksi pemilik produk dalam pembahasan 25–26 Oktober 2026 yang tersedia |
@@ -200,7 +200,8 @@ Penempatan konfigurasi layanan pada subprogram/level adalah **rancangan logis**:
 - Subprogram dan layanan dapat ditambahkan di dalam pengaturan program.
 - Hindari navigasi bertingkat dengan banyak tombol Tambah/Simpan terpisah yang memecah pekerjaan.
 - Informasi lengkap tetap harus bisa diatur meskipun navigasi disederhanakan.
-- Warna utama bernuansa biru. Logo asli akan digunakan setelah diberikan pemilik produk.
+- Gunakan logo resmi pemberian pemilik produk di `assets/brand/tong-yi-group-logo.png`, tanpa mengubah bentuk, warna, teks, atau proporsinya.
+- Tema mengikuti logo: biru sebagai warna utama dan oranye sebagai aksen, dengan latar terang dan tampilan profesional. Rujuk [Identitas Visual](BRAND_GUIDELINES.md); kode warna antarmuka di sana merupakan rancangan awal, bukan kode merek resmi.
 - Bahasa Indonesia harus konsisten, jelas, profesional, dan mudah dipahami.
 
 **Rancangan:** satu penyimpanan program mencakup identitas, subprogram, layanan, serta kurikulum; draf disimpan selama pengisian dan dapat dilanjutkan. Untuk sistem utama, persistensi draf harus ditentukan dengan sengaja; penyimpanan browser dalam prototipe tidak berarti draf sudah tersimpan di server atau lintas perangkat.

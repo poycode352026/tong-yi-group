@@ -1,6 +1,6 @@
 # Catatan Keputusan — Tong Yi Group
 
-Versi 0.3 · 6 November 2026. Dibaca bersama [BRD](BRD.md).
+Versi 0.4 · 6 November 2026. Dibaca bersama [BRD](BRD.md).
 
 ## 1. Keputusan yang menjadi acuan
 
@@ -36,6 +36,7 @@ Versi 0.3 · 6 November 2026. Dibaca bersama [BRD](BRD.md).
 | D-28 | Pengembangan selanjutnya dilakukan bersama di VS Code menggunakan Codex; dokumentasi menjadi acuan implementasi |
 | D-30 | Basis data aplikasi menggunakan PostgreSQL, menggantikan MySQL; versi dan konfigurasi ditetapkan saat penyiapan fondasi |
 | D-29 | Keputusan awal stack; pilihan basis data MySQL digantikan D-30. Laravel, Vue.js, dan Inertia.js tetap digunakan |
+| D-31 | Logo PNG yang diberikan pemilik produk menjadi logo resmi; tema aplikasi mengikuti biru dan oranye logo, dengan biru utama dan oranye aksen. Aset asli tidak diubah; palet HEX antarmuka merupakan rancangan awal pada BRAND_GUIDELINES.md |
 
 ## 2. Koreksi yang menggantikan usulan terdahulu
 
@@ -112,3 +113,15 @@ Setiap keputusan baru mencatat: ID, tanggal, keputusan, pihak yang menyetujui, a
 - **Dampak:** seluruh rancangan data, migrasi, koneksi lokal, dan panduan implementasi menggunakan PostgreSQL. Versi, hosting, backup, dan konfigurasi tetap terbuka pada O-22.
 - **Skenario penerimaan:** AC-01–AC-26 tidak berubah; koneksi dan migrasi fondasi diverifikasi menggunakan PostgreSQL.
 - **Batas perubahan:** dokumentasi repositori diperbarui; aplikasi belum diimplementasikan. Penyebutan MySQL pada riwayat D-29 dipertahankan sebagai catatan historis.
+
+
+### D-31 — Logo dan arah tema Tong Yi Group
+
+- **Tanggal:** 6 November 2026.
+- **Disetujui oleh:** pemilik produk melalui unggahan logo dan instruksi pembaruan.
+- **Keputusan:** menggunakan logo PNG yang diberikan sebagai identitas Tong Yi Group; tema aplikasi memakai warna serupa, yaitu biru utama dan oranye sebagai aksen.
+- **Alasan:** menyelaraskan antarmuka dengan identitas yang dipilih pemilik produk.
+- **Menggantikan:** catatan logo masih menunggu dan arahan warna biru tanpa acuan aset.
+- **Dampak:** aset disimpan pada `assets/brand/tong-yi-group-logo.png`; pedoman ada pada [Identitas Visual](BRAND_GUIDELINES.md). Semua peran mengikuti arah yang sama.
+- **Skenario penerimaan:** logo asli tampil dengan proporsi benar; warna antarmuka mengikuti biru/oranye; tabel dan formulir tetap terbaca. AC-01–AC-26 tidak berubah.
+- **Batas keputusan:** kode HEX antarmuka adalah rancangan implementasi, belum keputusan kode merek resmi. Tidak membuat aplikasi atau prototipe baru dalam perubahan ini.

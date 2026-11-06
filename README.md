@@ -1,5 +1,7 @@
 # Tong Yi Group
 
+![Logo Tong Yi Group](assets/brand/tong-yi-group-logo.png)
+
 Repositori pengembangan sistem pengelolaan pembelajaran **Tong Yi Group**.
 
 ## Mulai dari dokumentasi
@@ -9,8 +11,9 @@ Repositori pengembangan sistem pengelolaan pembelajaran **Tong Yi Group**.
 | [BRD — Kebutuhan Bisnis](docs/BRD.md) | Tujuan produk, lingkup, peran, aturan bisnis, kebutuhan, dan skenario penerimaan |
 | [Catatan Keputusan](docs/DECISIONS.md) | Keputusan disepakati, koreksi yang menggantikan usulan lama, dan detail yang masih terbuka |
 | [Panduan Pengembangan](docs/IMPLEMENTATION_GUIDE.md) | Urutan implementasi dan aturan penggunaan BRD oleh pengembang/agent |
+| [Identitas Visual](docs/BRAND_GUIDELINES.md) | Logo resmi dan arah tema biru dengan aksen oranye |
 
-**Status:** dokumentasi versi 0.3, 6 November 2026. Stack teknologi telah disepakati; repositori belum berisi aplikasi produksi.
+**Status:** dokumentasi versi 0.4, 6 November 2026. Stack teknologi telah disepakati; repositori belum berisi aplikasi produksi.
 
 ## Stack teknologi
 

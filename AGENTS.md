@@ -29,6 +29,12 @@ Baca `docs/BRD.md`, `docs/DECISIONS.md`, dan `docs/IMPLEMENTATION_GUIDE.md` sebe
 - Siswa belum lulus boleh lanjut/mengulang, tetapi sertifikat dan riwayat kelulusan per level tetap mengikuti hasil yang benar.
 - Jangan menetapkan bagi hasil 70/30, tarif, ambang nilai, atau angka lain sebagai kebijakan resmi tanpa keputusan pengguna.
 
+## Identitas visual
+
+- Baca `docs/BRAND_GUIDELINES.md` sebelum mengerjakan antarmuka.
+- Gunakan logo resmi `assets/brand/tong-yi-group-logo.png` tanpa mengubah warna, bentuk, teks, komposisi, atau proporsi.
+- Tema mengikuti logo: biru utama, oranye aksen, latar terang, dan tampilan profesional. Token HEX dalam panduan adalah rancangan awal, bukan keputusan kode merek resmi.
+
 ## Cara bekerja
 
 - Kerjakan perubahan kecil yang utuh, dengan bahasa Indonesia yang rapi pada produk.

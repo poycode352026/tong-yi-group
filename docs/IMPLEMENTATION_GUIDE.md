@@ -53,7 +53,11 @@ Fondasi data untuk pembayaran/kelas dapat disiapkan lebih awal jika diperlukan, 
 - Penyimpanan menyeluruh harus konsisten; validasi tidak menghilangkan input.
 - Draf dan program yang telah disimpan/diterbitkan harus dibedakan.
 
-### 4.2 Keputusan teknis yang perlu dirancang
+### 4.2 Identitas visual
+
+Gunakan [Identitas Visual](BRAND_GUIDELINES.md) dan aset logo asli `assets/brand/tong-yi-group-logo.png` sesuai D-31. Tema aplikasi mengikuti biru utama dan oranye aksen. Saat fondasi antarmuka dibuat, tempatkan warna pada token terpusat, jaga proporsi logo, dan periksa keterbacaan serta kontras. Kode HEX dalam panduan adalah usulan implementasi yang dapat ditinjau bersama, bukan kode merek resmi.
+
+### 4.3 Keputusan teknis yang perlu dirancang
 
 - Identitas stabil untuk program, subprogram, level, layanan, paket, dan rencana sesi.
 - Hubungan konfigurasi layanan dengan level; hindari kolom tetap `harga_online`, `harga_offline`, `harga_private` sebagai satu-satunya model jika membatasi kebutuhan fleksibel.
