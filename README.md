@@ -10,7 +10,7 @@ Repositori pengembangan sistem pengelolaan pembelajaran **Tong Yi Group**.
 | [Catatan Keputusan](docs/DECISIONS.md) | Keputusan disepakati, koreksi yang menggantikan usulan lama, dan detail yang masih terbuka |
 | [Panduan Pengembangan](docs/IMPLEMENTATION_GUIDE.md) | Urutan implementasi dan aturan penggunaan BRD oleh pengembang/agent |
 
-**Status:** dokumentasi versi 0.2, 26 Oktober 2026. Stack teknologi telah disepakati; repositori belum berisi aplikasi produksi.
+**Status:** dokumentasi versi 0.3, 6 November 2026. Stack teknologi telah disepakati; repositori belum berisi aplikasi produksi.
 
 ## Stack teknologi
 
@@ -19,9 +19,9 @@ Repositori pengembangan sistem pengelolaan pembelajaran **Tong Yi Group**.
 | Laravel | Logika bisnis, route/controller, validasi, akses basis data, autentikasi, dan otorisasi pada server |
 | Vue.js | Antarmuka pengguna berbasis komponen dan formulir interaktif |
 | Inertia.js | Menghubungkan halaman Vue dengan route/controller Laravel dan menangani navigasi antarhalaman |
-| MySQL | Penyimpanan dan pengolahan data terstruktur |
+| PostgreSQL | Penyimpanan dan pengolahan data terstruktur |
 
-Keputusan stack tercatat pada [D-29](docs/DECISIONS.md). Versi dependensi, deployment, penyimpanan berkas, dan detail autentikasi masih perlu ditetapkan saat penyiapan fondasi.
+Keputusan stack tercatat pada [D-29 dan D-30](docs/DECISIONS.md). Versi dependensi, deployment, penyimpanan berkas, dan detail autentikasi masih perlu ditetapkan saat penyiapan fondasi.
 
 Prioritas awal adalah ruang **Admin Tong Yi**, terutama pengelolaan program. Satu program dapat memiliki beberapa subprogram; setiap subprogram memiliki level/kurikulum dan hanya layanan yang benar-benar ditawarkan. Satu paket belajar normal terdiri dari delapan sesi.
 
