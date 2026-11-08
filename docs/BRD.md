@@ -106,6 +106,7 @@ Keputusan ini tidak mengubah aturan bisnis atau skenario penerimaan. Versi tekno
 | Peran bisnis | Tanggung jawab |
 |---|---|
 | Pemilik/pengelola Tong Yi | Menetapkan kebijakan, harga, struktur akademik, dan standar kompetensi |
+| Superadmin | Mengatur kewenangan pengguna dan susunan menu administrasi, sesuai permintaan terbaru pemilik produk |
 | Admin akademik | Mengatur program/kurikulum, memeriksa guru, menyetujui kelas, dan menangani hasil akademik sesuai wewenang |
 | Admin keuangan | Memverifikasi pembayaran dan memproses pencairan sesuai wewenang |
 | Guru | Mengajukan izin/kelas, mengajar, mengisi presensi dan dokumentasi, serta mengajukan klaim |
@@ -116,6 +117,8 @@ Keputusan ini tidak mengubah aturan bisnis atau skenario penerimaan. Versi tekno
 Pembagian admin akademik/keuangan adalah **rancangan pembagian kewenangan**. Satu orang dapat memegang beberapa kewenangan; jumlah jenis akun final dan mekanisme hubungan wali–siswa masih perlu dirinci.
 
 Prinsip akses:
+
+- Superadmin mengatur permission pengguna dan menu Admin; implementasi awal serta batasnya tercatat pada [Kontrol Akses](ACCESS_CONTROL.md). Admin biasa tidak dapat mengubah pengaturan tersebut.
 
 - Admin melihat fungsi sesuai kewenangannya.
 - Guru hanya mengelola kelas dan siswa dalam penugasannya; tidak memperoleh kunci ujian karena menjadi pengajar.
@@ -158,6 +161,9 @@ Penempatan konfigurasi layanan pada subprogram/level adalah **rancangan logis**:
 
 ### 7.1 Program, subprogram, dan level — Disepakati
 
+- Tong Yi Group mencakup berbagai bidang, tidak terbatas pada bahasa. Admin dapat menambahkan program apa saja sesuai kebutuhan lembaga.
+- Bahasa adalah salah satu kategori; program bahasa saat ini adalah Mandarin, dengan variasi Mandarin Tradisional (Traditional) dan Mandarin Sederhana (Simplified). Kelompok peserta bukan pengganti struktur program/variasi.
+
 - Satu program dapat berisi beberapa subprogram.
 - Subprogram dapat membedakan kelompok peserta, misalnya anak-anak/dewasa, dan variasi seperti Simplified/Traditional.
 - Konfigurasi masing-masing variasi harus berdiri sendiri.
@@ -188,9 +194,20 @@ Penempatan konfigurasi layanan pada subprogram/level adalah **rancangan logis**:
 - Contoh Beginner: 3 paket = 24 sesi; contoh Advanced: 8 paket = 64 sesi.
 - Penyebutan bulan merupakan perkiraan durasi; progres mengikuti sesi aktual dan penggantian jadwal.
 
-**Rancangan isian sesi kurikulum:** judul materi, tujuan belajar, materi wajib, latihan/tugas, dan referensi/bahan ajar. Tema paket dapat merangkum fokus delapan sesi.
+**Rancangan isian sesi kurikulum:** judul materi, tujuan belajar, materi wajib, panduan latihan untuk guru, dan referensi/bahan ajar. Kolom panduan latihan menjelaskan latihan yang diharapkan atau referensi saat guru menyusun latihan; bukan objek latihan wajib siswa.
+
+**Penegasan pemilik produk — 7 November 2026:** Admin dapat membuat latihan wajib yang dikerjakan langsung di sistem. Latihan tersebut harus dipisahkan dari panduan guru, dengan objek soal, pengerjaan, dan hasil tersendiri. Penegasan lanjutan: latihan resmi internal Tong Yi umumnya per paket dan dapat diberikan pada akhir level; Admin membuat soal pilihan ganda atau isian dan hasil pengerjaan siswa direkap. Latihan tidak wajib dibuat setiap sesi. Penilaian isian, bobot, tenggat/upaya, serta pengaruhnya terhadap kelulusan/sesi/klaim belum ditetapkan. Latihan akhir level tidak otomatis menggantikan ujian penentu kelulusan. Tema paket dapat merangkum fokus delapan sesi.
 
 **Rancangan perlindungan:** pengurangan jumlah paket tidak menghapus materi tanpa pemberitahuan dan mekanisme yang jelas. Materi tersimpan perlu dipertahankan sampai tindakan penghapusan yang disengaja.
+
+### 7.3.1 Library materi dan latihan resmi — Admin awal tersedia; LMS siswa berikutnya
+
+Status D-45: master acuan/tingkatan, PDF privat/tautan HTTPS, penyusunan soal PG/isian, versi draf/siap dipakai, dan pengaitan kurikulum sudah tersedia di Admin. Penugasan kelas, pengerjaan siswa, pemeriksaan, dan rekap upaya belum dibangun. Rincian: [Materi dan Latihan](LEARNING_RESOURCES.md).
+
+- Library Materi menjadi bagian aplikasi/LMS Tong Yi. Admin dapat mengunggah PDF referensi dan menghubungkannya ke pembelajaran terkait; tautan eksternal dapat melengkapi katalog sesuai rancangan pustaka.
+- PDF referensi berbeda dari set soal interaktif. Soal resmi internal dibuat Admin sebagai pilihan ganda/isian, ditugaskan per paket atau akhir level, dan pengerjaan/hasilnya direkap di sistem.
+- Panduan latihan untuk guru pada kurikulum tetap terpisah dari soal wajib siswa dan tidak otomatis menjadi penugasan resmi.
+- Versi materi/soal, otorisasi akses, serta riwayat pengerjaan harus dirancang agar perubahan berikutnya tidak menimpa hasil lama. Detail penyimpanan, penilaian, penugasan, dan rekap mengikuti [Rancangan Materi dan Latihan](LEARNING_RESOURCES.md).
 
 ### 7.4 Antarmuka admin — Disepakati
 
@@ -520,3 +537,26 @@ Skenario refund, absensi, kuota minimum, penempatan, dan beberapa pengecualian d
 - Banyaknya opsi tidak boleh membuat antarmuka penuh tombol; kompleksitas data ditangani melalui pengelompokan di halaman kerja yang sama.
 
 Daftar keputusan lengkap yang masih terbuka berada pada [DECISIONS.md](DECISIONS.md). BRD ditinjau kembali saat keputusan baru dibuat. Pengembangan dimulai dari satu alur lengkap dan dapat diuji, lalu diperluas bertahap.
+
+### Klarifikasi modul level — D-47
+
+Modul disusun Tong Yi untuk setiap level dan dibagi menjadi materi per sesi. Acuan (misalnya HSK 1–HSK 2) menjelaskan dasar/cakupan penyusunannya; berkas PDF/tautan menjadi bahan ajar, sedangkan latihan adalah soal yang dikerjakan siswa per paket/akhir level. Modul dapat memakai berkas bersama dengan pembagian bab/halaman per sesi atau berkas khusus sesi. Implementasi Admin serta batas LMS siswa dijelaskan pada [Materi dan Latihan](LEARNING_RESOURCES.md).
+
+### Koreksi materi dan modul — D-51
+
+Materi sesi merupakan materi khusus setiap pertemuan, termasuk PDF tersendiri. Modul lengkap dipakai sebagai referensi mengajar dalam Pustaka Guru, dapat dikaitkan ke level/paket, dan tidak otomatis menjadi materi beberapa sesi. Koreksi ini menggantikan rancangan penggunaan satu PDF bersama lintas sesi pada D-47. Latihan Tong Yi disiapkan Admin pada paket/akhir level; latihan guru merupakan objek terpisah dari panduan kurikulum sesi. Rencana nilai gabungan dapat memakai komponen latihan Tong Yi, penilaian/latihan guru, serta kehadiran dengan bobot persentase, tetapi angka bobot, cakupan, dan penanganan komponen kosong belum diputuskan. Implementasi/otorisasi guru, pengerjaan dan rekap siswa, serta mesin nilai masih tahap berikutnya.
+
+
+### Penegasan pengelolaan modul — D-64
+
+Level Tong Yi mempunyai satu tab Acuan & Modul: acuan menjelaskan cakupan (misalnya HSK 1–2), sedangkan kumpulan modul pengajaran memuat beberapa berkas buku, panduan, dan bahan internal Tong Yi. Modul terikat ke level Tong Yi, tidak wajib satu tingkatan HSK. Admin mengelolanya langsung dari level; Pustaka Guru menampilkan kelompok program/level. Materi per sesi dan ujian akhir paket/level tetap terpisah. Versi serta kaitan lama tidak dihapus otomatis.
+
+
+### Penyederhanaan katalog Modul — D-71 (menggantikan D-64/D-70)
+
+Modul merupakan referensi umum guru dengan susunan kelompok, modul, dan beberapa bahan PDF/tautan. Kelompok/nama dibuat langsung dalam pengelolaan Modul. Tidak ada menu Acuan terpisah atau checkbox Internal Tong Yi dalam alur baru. Satu modul dapat digunakan di beberapa level; satu level dapat memilih beberapa modul dari kelompok berbeda. Materi setiap sesi dan ujian tetap terpisah. Versi/berkas/kaitan lama tetap dilindungi.
+
+
+### Penegasan cakupan modul — D-72
+
+Modul bernama bebas (misalnya Absolute Beginner - Beginner) memuat pilihan acuan HSK/BCT dan tingkatannya, serta bahan pengajaran PDF/tautan. Kelompok tidak wajib dan tidak perlu menu Acuan terpisah. Di Program Akademik cukup pilih modul; informasi cakupan dan bahan langsung terlihat. Katalog tetap umum, mendukung beberapa modul pada satu level dan penggunaan ulang antarlevel. Materi sesi dan ujian tetap terpisah.

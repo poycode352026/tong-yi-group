@@ -1,0 +1,18 @@
+<script setup>
+import { ref } from 'vue';
+import { Head, Link, router, usePage } from '@inertiajs/vue3';
+import AdminLayout from '../../../layouts/AdminLayout.vue';
+const props = defineProps({ programs: Object, search: String });
+const abilities = usePage().props.auth?.abilities ?? {};
+const term = ref(props.search);
+const search = () => router.get('/admin/programs', { search: term.value }, { preserveState: true, replace: true });
+const date = (value) => new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(value));
+</script>
+<template>
+    <Head title="Program Akademik" />
+    <AdminLayout><div class="flex flex-wrap items-end justify-between gap-5"><div><p class="text-xs font-semibold tracking-widest text-interactive">KATALOG PEMBELAJARAN</p><h1 class="mt-3 text-3xl font-semibold text-brand">Program Akademik</h1><p class="mt-3 max-w-2xl leading-7 text-muted">Kelola berbagai program, subprogram, level, layanan, dan rencana pembelajaran.</p></div><Link v-if="abilities['programs.manage']" href="/admin/programs/create" class="admin-button">Tambah Program</Link></div>
+        <form class="mt-8 flex max-w-xl gap-3" role="search" @submit.prevent="search"><label for="search" class="sr-only">Cari nama atau kategori program</label><input id="search" v-model="term" class="admin-input" placeholder="Cari nama atau kategori program…" maxlength="100" /><button class="admin-secondary" type="submit">Cari</button></form>
+        <div class="mt-6 overflow-x-auto rounded-xl border border-line bg-white"><table class="w-full min-w-[650px] text-left text-sm"><caption class="sr-only">Daftar program akademik</caption><thead class="border-b border-line bg-brand-soft text-brand"><tr><th scope="col" class="p-4">Program / kategori</th><th scope="col" class="p-4">Subprogram</th><th scope="col" class="p-4">Status</th><th scope="col" class="p-4">Diperbarui</th><th scope="col" class="p-4">Tindakan</th></tr></thead><tbody><tr v-for="program in programs.data" :key="program.id" class="border-b border-line last:border-0"><td class="p-4"><p class="font-semibold text-brand">{{ program.name }}</p><p class="mt-1 text-muted">{{ program.category || 'Belum diisi' }}</p></td><td class="p-4">{{ program.subprogram_count }}</td><td class="p-4"><span :class="['rounded-full px-3 py-1 text-xs font-semibold', program.published ? 'bg-brand-soft text-brand' : 'bg-accent-soft text-ink']">{{ program.published ? 'Terbit' : 'Draf' }}</span><p v-if="program.published && program.has_changes" class="mt-2 text-xs text-muted">Ada perubahan draf</p></td><td class="p-4 text-muted">{{ date(program.updated_at) }}</td><td class="p-4"><Link v-if="abilities['programs.manage']" :href="`/admin/programs/${program.id}/edit`" class="font-semibold text-interactive" :aria-label="`Ubah ${program.name}`">Ubah</Link></td></tr><tr v-if="!programs.data.length"><td colspan="5" class="p-12 text-center text-muted"><p class="font-semibold text-brand">{{ search ? 'Program tidak ditemukan' : 'Belum ada program' }}</p><p class="mt-2">{{ search ? 'Coba nama atau kategori lainnya.' : 'Mulai dengan menambahkan program pertama Anda.' }}</p></td></tr></tbody></table></div>
+        <nav v-if="programs.last_page > 1" aria-label="Halaman daftar program" class="mt-5 flex flex-wrap items-center gap-4 text-sm"><Link v-if="programs.prev_page_url" :href="programs.prev_page_url" class="admin-secondary">Sebelumnya</Link><span class="text-muted">Halaman {{ programs.current_page }} dari {{ programs.last_page }}</span><Link v-if="programs.next_page_url" :href="programs.next_page_url" class="admin-secondary">Berikutnya</Link></nav>
+    </AdminLayout>
+</template>

@@ -1,0 +1,27 @@
+/* Gaya formulir dimuat bersama stylesheet utama agar perataan dan panel konsisten. */
+.program-editor .editor-panel { border: 1px solid var(--color-line); border-radius: 14px; background: white; overflow: clip; }
+.program-editor .panel-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.4rem 1.6rem; border-bottom: 1px solid var(--color-line); }
+.program-editor .panel-heading h2 { font-size: 1rem; font-weight: 600; color: var(--color-brand); }
+.program-editor .panel-heading p:not(.section-overline) { margin-top: .35rem; font-size: .75rem; line-height: 1.6; color: var(--color-muted); }
+.program-editor .panel-body { padding: 1.6rem; }
+.program-editor .sub-settings:not([open]) > summary { border-bottom: 0; }
+.program-editor .sub-settings > summary::-webkit-details-marker { display: none; }
+.program-editor .outline-item { display: block; width: 100%; min-width: 0; border-radius: 8px; padding: .75rem; margin-bottom: .2rem; text-align: left; font-size: .8rem; font-weight: 500; color: var(--color-muted); }
+.program-editor .outline-item.is-active { background: var(--color-brand-soft); color: var(--color-brand); }
+.program-editor .outline-item:hover:not(.is-active) { background: var(--color-page); }
+.program-editor .level-pill { flex-shrink: 0; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: .7rem 1rem; border: 1px solid transparent; border-bottom: 0; border-radius: 8px 8px 0 0; color: var(--color-muted); font-size: .8rem; }
+.program-editor .level-pill.is-active { border-color: var(--color-line); background: white; color: var(--color-brand); font-weight: 600; }
+.program-editor .section-tab { padding: .25rem 0 .85rem; border-bottom: 2px solid transparent; color: var(--color-muted); font-size: .8rem; font-weight: 600; }
+.program-editor .section-tab.is-active { border-color: var(--color-brand); color: var(--color-brand); }
+.program-editor .section-overline { font-size: .6rem; line-height: 1.7; letter-spacing: .12em; font-weight: 600; color: var(--color-muted); }
+.program-editor .quiet-action { font-size: .7rem; color: var(--color-muted); text-decoration: underline; text-decoration-color: var(--color-line); text-underline-offset: 4px; }
+.program-editor .quiet-action:hover { color: #b91c1c; }
+.program-editor .service-editor { padding: 1.25rem; border: 1px solid var(--color-line); border-radius: 10px; background: var(--color-page); }
+.program-editor .session-choice { width: 100%; padding: .65rem .75rem; text-align: left; font-size: .75rem; font-weight: 500; color: var(--color-muted); border-radius: 7px; }
+.program-editor .session-choice.is-active { background: var(--color-brand-soft); color: var(--color-brand); }
+.program-editor button { outline-offset: 3px; }
+.program-editor button:focus-visible { outline: 2px solid var(--color-interactive); }
+@media (prefers-reduced-motion: no-preference) { .program-editor button { transition: background-color .18s ease, color .18s ease; } }
+@media (max-width: 639px) { .program-editor .panel-heading, .program-editor .panel-body { padding: 1.15rem; } }
+.program-editor .outline-item > span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.program-editor .panel-heading h2 { overflow-wrap: anywhere; }

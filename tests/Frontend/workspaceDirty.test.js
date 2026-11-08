@@ -1,0 +1,30 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { adminWorkspace, clearLearningWorkspace, ensureLearningWorkspace, storeLearningDraft, setWorkspaceDirty, workspaceDirty, workspaceTabDirty, learningDraft } from '../../resources/js/utils/learningWorkspace.js';
+
+test('clean tab remains clean after switching while unrelated unsaved buffers stay protected', () => {
+    const storage = new Map();
+    globalThis.sessionStorage = { getItem: (key) => storage.get(key) ?? null, setItem: (key, value) => storage.set(key, value), removeItem: (key) => storage.delete(key) };
+    clearLearningWorkspace();
+    ensureLearningWorkspace({ email: 'test@example.test' });
+    storeLearningDraft('assessments:new', { data: { title: 'Belum selesai' } });
+    setWorkspaceDirty('assessments', false);
+    adminWorkspace.active = 'assessments';
+    assert.equal(workspaceTabDirty('assessments'), false);
+    adminWorkspace.active = 'materials';
+    assert.equal(workspaceTabDirty('assessments'), false);
+    assert.equal(workspaceDirty('assessments'), true);
+    assert.equal(learningDraft('assessments:new').data.title, 'Belum selesai');
+    setWorkspaceDirty('materials', true);
+    adminWorkspace.active = 'dashboard';
+    assert.equal(workspaceTabDirty('materials'), true);
+    const persisted = JSON.parse(storage.get('tong-yi-admin-workspace:v2'));
+    assert.deepEqual(persisted.dirty, { assessments: false, materials: true });
+    clearLearningWorkspace();
+    storage.set('tong-yi-admin-workspace:v2', JSON.stringify(persisted));
+    ensureLearningWorkspace({ email: 'test@example.test' });
+    assert.equal(workspaceTabDirty('assessments'), false);
+    assert.equal(workspaceTabDirty('materials'), true);
+    clearLearningWorkspace();
+    delete globalThis.sessionStorage;
+});

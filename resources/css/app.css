@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+@import './admin-program.css';
+@import './admin-theme.css';
+
+@source '../**/*.blade.php';
+@source '../**/*.vue';
+@source '../**/*.js';
+
+/* Padanan antarmuka awal; bukan kode merek resmi. */
+@theme {
+    --font-sans: Arial, Helvetica, sans-serif;
+    --color-brand: #0B3B78;
+    --color-interactive: #006EB8;
+    --color-brand-soft: #EAF3FB;
+    --color-accent: #F5A602;
+    --color-accent-soft: #FFF3DA;
+    --color-page: #F7F9FC;
+    --color-ink: #172B4D;
+    --color-muted: #526279;
+    --color-line: #DCE4EE;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
+
+@layer components {
+    .admin-input { @apply w-full rounded-lg border border-line bg-white px-3 py-2.5 text-sm text-ink outline-offset-4 focus:outline-2 focus:outline-interactive; }
+    .admin-button { @apply inline-flex items-center justify-center rounded-lg bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-interactive disabled:cursor-wait disabled:opacity-50; }
+    .admin-secondary { @apply inline-flex items-center justify-center rounded-lg border border-line bg-white px-4 py-2.5 text-sm font-semibold text-brand hover:bg-brand-soft disabled:opacity-50; }
+}
+
+@layer components {
+    .field-label { @apply mb-2 block text-xs font-semibold text-ink; }
+    .field-error { @apply mt-2 text-xs leading-5 text-red-700; }
+    .admin-input { @apply placeholder:text-muted/55; scroll-margin-top: 8rem; }
+    .admin-input[aria-invalid='true'] { border-color: #dc2626; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .admin-input { transition: border-color .18s ease, box-shadow .18s ease; }
+}

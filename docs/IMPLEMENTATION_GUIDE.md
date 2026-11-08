@@ -12,7 +12,7 @@ Baca berurutan:
 
 Stack telah disepakati oleh pemilik produk: **Laravel + Vue.js + Inertia.js + PostgreSQL** (D-29 dan D-30). Laravel menangani route/controller, logika bisnis, validasi, autentikasi, otorisasi, dan akses data. Vue.js membangun komponen halaman, sementara Inertia.js menghubungkannya dengan Laravel. Data aplikasi disimpan di PostgreSQL.
 
-Versi Laravel, Vue.js, Inertia.js, PostgreSQL, PHP, dan Node.js belum dipin. Saat penyiapan fondasi, pilih versi yang saling kompatibel dan catat kebutuhan runtime serta dependensinya. Penyedia hosting, metode autentikasi, penyimpanan berkas, backup, dan retensi masih perlu dirancang; keputusan stack tidak berarti environment sudah terpasang atau aplikasi sudah dapat dijalankan.
+Fondasi lokal menggunakan Laravel 13, Vue 3, Inertia 3, Tailwind CSS 4, Vite 8, dan PostgreSQL 18. Versi paket terkunci dalam lockfile; runtime dan hasil verifikasi tercatat pada [Fondasi Lokal](LOCAL_DEVELOPMENT.md). Penyedia hosting, rincian kewenangan lintas peran, penyimpanan berkas, backup, dan retensi masih perlu dirancang (login session dan akses Admin awal sudah tersedia; lihat README); keputusan stack tidak berarti environment sudah terpasang atau aplikasi sudah dapat dijalankan.
 
 ## 2. Langkah awal di VS Code
 
@@ -97,3 +97,19 @@ Rekomendasi teknis ini bukan skema database final. Dokumentasikan keputusan desa
 ## 8. Definisi selesai untuk suatu tahap
 
 Suatu tahap selesai jika perilaku yang dijanjikan tersedia, data dan hak aksesnya benar sesuai lingkup, skenario relevan lulus, kesalahan utama ditangani, dan batas implementasinya dijelaskan. Halaman yang hanya terlihat lengkap tidak berarti proses bisnisnya selesai.
+
+## Status akses Admin — 6 November 2026
+
+Login/logout menggunakan session Laravel, route dilindungi autentikasi dan Gate `access-admin`. Akun Admin dibuat melalui `php artisan admin:create` tanpa kata sandi bawaan. Pengujian yang mengubah akun wajib memakai PostgreSQL `tong_yi_group_test`; konfigurasi dan pengaman tersedia dalam `.env.testing.example`, `phpunit.xml`, serta `tests/TestCase.php`. Rincian role akademik/keuangan, audit operasional, pemulihan kata sandi, masih belum diimplementasikan. Modul Program Akademik awal tersedia; lihat [Admin Program](ADMIN_PROGRAM.md).
+
+## Status Admin Program awal
+
+Tabel, formulir terpadu, layanan opsional, kurikulum paket/sesi, draf server, versi terbit terpisah, transaksi, snapshot audit, dan pemeriksaan konflik revisi tersedia. Desain JSONB tervalidasi serta batas implementasi tercatat pada [Admin Program](ADMIN_PROGRAM.md). AC-01–AC-09 telah dipetakan ke pengujian backend yang relevan; interaksi/tampilan browser masih perlu ditinjau. Katalog publik, arsip/hapus, dan aturan perubahan terhadap kelas berjalan belum diimplementasikan.
+
+## Status Superadmin — 7 November 2026
+
+Pengaturan permission pengguna dan menu tersedia khusus Superadmin. Route program dibatasi kemampuan lihat, ubah, dan terbitkan. Akun Admin lama dipertahankan; akun baru memerlukan pemberian izin. Identitas akun Superadmin awal dipilih eksplisit oleh pemilik produk. Lihat [Kontrol Akses](ACCESS_CONTROL.md) untuk desain, bootstrap, audit, dan batas penerapan role bisnis berikutnya.
+
+## Status sumber belajar Admin — 7 November 2026
+
+Acuan/tingkatan, Library PDF privat/tautan, pembuatan soal PG/isian, versi draf/siap dipakai, serta pengaitan ke program tersedia sesuai D-45. Skema versi terpisah mempertahankan sumber yang dipilih kurikulum. Pengerjaan/rekap siswa belum tersedia; jangan membuka kunci jawaban melalui payload siswa saat modul tersebut dibangun. Lihat [Materi dan Latihan](LEARNING_RESOURCES.md).

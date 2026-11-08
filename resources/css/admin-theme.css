@@ -1,0 +1,124 @@
+/* Ruang Admin netral: putih dominan, biru untuk tindakan, oranye sebagai aksen tipis. */
+.admin-shell {
+    --color-page: #f4f5f7;
+    --color-line: #e1e5eb;
+    --color-brand-soft: #eef3f9;
+    --color-accent-soft: #fff0d8;
+    --admin-surface: #fff;
+    --admin-subtle: #f7f8fa;
+    --admin-hover: #f5f6f8;
+    --admin-nav-text: #445064;
+    --admin-selected: #edf3fa;
+    --admin-header: #fffffff5;
+    --admin-input-line: #d4dae3;
+    --admin-primary: #124779;
+    --admin-primary-hover: #0c5b94;
+    background: var(--color-page);
+}
+/* Navigasi terang; warna merek hanya menandai pilihan dan tindakan utama. */
+.admin-shell #admin-desktop-sidebar { background: var(--admin-surface); border-color: var(--color-line); }
+.admin-shell #admin-desktop-sidebar > div:first-child { background: var(--admin-surface); border-bottom: 1px solid var(--color-line); }
+.admin-shell #admin-desktop-sidebar nav > p { color: var(--color-muted); }
+.admin-shell #admin-desktop-sidebar .sidebar-link { color: var(--admin-nav-text); }
+.admin-shell #admin-desktop-sidebar .sidebar-link:hover { background: var(--admin-hover); color: var(--color-ink); }
+.admin-shell #admin-desktop-sidebar .sidebar-link.is-active { background: var(--admin-selected); color: var(--color-brand); }
+.admin-shell #admin-desktop-sidebar .sidebar-link.is-active::before { background: #e7a13b; }
+.admin-shell #admin-desktop-sidebar > div:last-child { border-color: var(--color-line); }
+.admin-shell #admin-desktop-sidebar > div:last-child > div { background: var(--admin-hover); }
+.admin-shell #admin-desktop-sidebar form button { color: var(--color-muted); border-color: var(--color-line); }
+.admin-shell #admin-desktop-sidebar form button:hover { background: var(--admin-hover); }
+.admin-shell .admin-frame > header { background: var(--admin-header); border-bottom-color: var(--color-line); }
+.admin-shell .admin-frame > main { min-height: calc(100vh - 130px); }
+.admin-shell main .bg-white { background-color: var(--admin-surface); }
+.admin-shell .program-editor .editor-panel, .admin-shell .learning-panel { background: var(--admin-surface); border: 1px solid var(--color-line); border-radius: 14px; box-shadow: 0 4px 18px #173d5e04; overflow: clip; }
+.admin-shell .program-editor .panel-heading, .admin-shell .learning-panel-heading { background: var(--admin-surface); border-bottom: 1px solid var(--color-line); }
+.admin-shell .program-editor .panel-body { background: var(--admin-surface); }
+.admin-shell .program-editor .editor-outline { background: var(--admin-surface); }
+.admin-shell .program-editor .outline-item.is-active { background: var(--admin-selected); box-shadow: inset 3px 0 0 #ed9b1d; }
+.admin-shell .program-editor .level-pill.is-active { background: var(--admin-surface); box-shadow: inset 0 3px 0 var(--color-accent); }
+.admin-shell .program-editor .section-tab.is-active { border-color: #d7850d; }
+.admin-shell .learning-intro { background: var(--admin-surface); box-shadow: inset 3px 0 0 #e7a13b; }
+.admin-shell .learning-panel-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.25rem 1.5rem; }
+.admin-shell .learning-panel-heading h2 { color: var(--color-brand); font-size: .95rem; font-weight: 600; }
+.admin-shell .learning-panel-heading p { color: var(--color-muted); font-size: .75rem; line-height: 1.7; margin-top: .35rem; }
+.admin-shell .learning-toolbar { background: var(--admin-header); backdrop-filter: blur(12px); box-shadow: 0 4px 16px #173d5e08; border-top: 1px solid var(--color-line); }
+.admin-shell .learning-links { background: var(--admin-subtle); }
+.admin-shell .question-panel { background: var(--admin-subtle); }
+.admin-shell .admin-input { background-color: var(--admin-surface); border-color: var(--admin-input-line); }
+.admin-shell .admin-input:focus { box-shadow: 0 0 0 4px #1e78b512; }
+.admin-shell .admin-button { background: var(--admin-primary); box-shadow: 0 2px 4px #11365c12; }
+.admin-shell .admin-button:hover { background: var(--admin-primary-hover); }
+.admin-shell .admin-secondary { background: var(--admin-surface); border-color: var(--admin-input-line); }
+.admin-shell .admin-secondary:hover { background: var(--admin-hover); }
+.admin-shell .admin-input { scroll-margin-top: 12rem; }
+@media (prefers-reduced-motion: no-preference) {
+    .admin-shell .admin-button, .admin-shell .admin-secondary { transition: background-color .18s ease, box-shadow .18s ease; }
+}
+.admin-shell [aria-label='Tindakan program'] { background: var(--admin-header); border: 1px solid var(--color-line); border-radius: 10px; padding-left: 1rem; padding-right: 1rem; backdrop-filter: blur(12px); }
+
+.admin-shell main h1, .admin-shell .program-editor .panel-heading h2,
+.admin-shell .learning-panel-heading h2 { color: var(--color-ink); }
+.admin-shell .program-editor [aria-label='Identitas program induk'] { background: var(--admin-subtle); }
+
+/* Mode gelap hanya pada ruang Admin; pilihan tidak mengubah aset logo. */
+.admin-shell[data-theme='dark'] {
+    color-scheme: dark;
+    --color-page: #14191f;
+    --color-line: #35404c;
+    --color-ink: #e7edf5;
+    --color-muted: #b0bdcd;
+    --color-brand: #a5c9f3;
+    --color-interactive: #8cbeef;
+    --color-brand-soft: #26384b;
+    --color-accent-soft: #3c301d;
+    --admin-surface: #1e252e;
+    --admin-subtle: #232c36;
+    --admin-hover: #2a3440;
+    --admin-nav-text: #c3cedc;
+    --admin-selected: #293b4d;
+    --admin-header: #1e252ef5;
+    --admin-input-line: #495665;
+    --admin-primary: #2767a2;
+    --admin-primary-hover: #3079ba;
+}
+.admin-shell[data-theme='light'] { color-scheme: light; }
+.admin-shell[data-theme='dark'] .bg-white { background-color: var(--admin-surface); }
+.admin-shell[data-theme='dark'] [class~='bg-white/70'] { background-color: var(--admin-surface); }
+.admin-shell[data-theme='dark'] .admin-input { background: #171e26; }
+.admin-shell[data-theme='dark'] .admin-input::placeholder { color: #91a1b3; opacity: 1; }
+.admin-shell[data-theme='dark'] .admin-input[aria-invalid='true'] { border-color: #f38d8d; }
+.admin-shell[data-theme='dark'] .bg-red-50 { background: #40272d; }
+.admin-shell[data-theme='dark'] .text-red-700, .admin-shell[data-theme='dark'] .text-red-800,
+.admin-shell[data-theme='dark'] .field-error { color: #ffb0ac; }
+.admin-shell[data-theme='dark'] .border-red-200 { border-color: #895357; }
+.admin-shell[data-theme='dark'] #admin-desktop-sidebar img { background: #fff; border-radius: 8px; padding: 8px; }
+.admin-shell .admin-skip { background: var(--admin-surface); }
+
+
+.admin-shell .nav-item { display: block; position: relative; padding: .65rem .8rem; margin-bottom: .2rem; border-radius: 7px; font-size: .8rem; color: var(--admin-nav-text); font-weight: 500; }
+.admin-shell .nav-item:hover, .admin-shell .nav-group:hover { background: var(--admin-hover); }
+.admin-shell .nav-item.is-active { background: var(--admin-selected); color: var(--color-brand); font-weight: 600; }
+.admin-shell .nav-item.is-active::before { content: ''; position: absolute; left: 0; top: 24%; bottom: 24%; width: 2px; background: #e7a13b; border-radius: 2px; }
+.admin-shell .nav-group { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: .7rem .8rem; border-radius: 7px; text-align: left; color: var(--color-ink); font-size: .8rem; font-weight: 600; }
+.admin-shell .nav-chevron.is-open { transform: rotate(90deg); }
+.admin-shell a:focus-visible, .admin-shell button:focus-visible { outline: 2px solid var(--color-interactive); outline-offset: 2px; }
+@media (prefers-reduced-motion: no-preference) { .admin-shell .nav-chevron { transition: transform .18s ease; } }
+
+
+
+.admin-shell .admin-tab { color: var(--color-muted); }
+.admin-shell .admin-tab.is-active { background: var(--admin-surface); border-color: var(--color-line); color: var(--color-brand); box-shadow: inset 0 2px 0 var(--color-accent); }
+.admin-shell a:focus-visible, .admin-shell button:focus-visible { outline: 2px solid var(--color-interactive); outline-offset: -2px; }
+
+
+
+.admin-shell .sidebar-link { position: relative; display: block; margin-bottom: .4rem; padding: .9rem .85rem; border-radius: 9px; color: var(--color-muted); font-size: .85rem; }
+.admin-shell .sidebar-link:hover { background: var(--color-page); color: var(--color-brand); }
+.admin-shell .sidebar-link.is-active { background: var(--color-brand-soft); color: var(--color-brand); }
+.admin-shell .sidebar-link.is-active::before { content: ''; position: absolute; width: 3px; left: 0; top: 20%; bottom: 20%; background: var(--color-brand); border-radius: 3px; }
+.admin-shell .account-avatar { display: flex; width: 36px; height: 36px; flex-shrink: 0; align-items: center; justify-content: center; border: 1px solid var(--color-line); border-radius: 50%; background: var(--color-brand-soft); color: var(--color-brand); font-size: .7rem; font-weight: 600; }
+.admin-shell .admin-skip { position: fixed; z-index: 60; top: -5rem; left: 1rem; border: 2px solid var(--color-brand); padding: .75rem 1rem; background: white; color: var(--color-brand); }
+.admin-shell .admin-skip:focus { top: 1rem; }
+.admin-shell a, .admin-shell button { outline-offset: 4px; }
+.admin-shell a:focus-visible, .admin-shell button:focus-visible { outline: 2px solid var(--color-interactive); }
+@media (prefers-reduced-motion: no-preference) { .admin-shell .admin-frame { transition: padding-left .2s ease; } .admin-shell .sidebar-link { transition: background-color .18s ease, color .18s ease; } }

@@ -17,7 +17,9 @@ Baca `docs/BRD.md`, `docs/DECISIONS.md`, dan `docs/IMPLEMENTATION_GUIDE.md` sebe
 - Satu program dapat mempunyai beberapa subprogram; level/kurikulum dan variasi Simplified/Traditional berdiri sendiri.
 - Layanan ditambahkan sesuai kebutuhan, dengan harga dan kapasitas masing-masing. Jangan mewajibkan semua kombinasi online/offline dan group/private.
 - Paket normal delapan sesi; kurikulum terstruktur per paket dan sesi.
+- Materi sesi adalah bahan khusus setiap pertemuan; modul menjadi referensi umum bernama bebas dalam menu Modul, dapat dipakai pada beberapa level. Acuan HSK/BCT beserta tingkatannya dicentang di dalam modul dan ditampilkan saat modul dipilih di Program Akademik. Tidak perlu kelompok wajib, menu Acuan terpisah, atau checkbox Internal Tong Yi. Jangan otomatis membagikan satu PDF level ke banyak sesi. Latihan Tong Yi per paket/level terpisah dari panduan/latihan tambahan guru. Bobot persentase nilai belum ditetapkan.
 - Program Akademik memakai tabel dan formulir halaman penuh; hindari navigasi bertingkat penuh tombol atau modal besar untuk pekerjaan panjang.
+- Arsip level dikelola melalui Sistem khusus Superadmin; pengarsipan tidak menghapus materi. Perubahan tersimpan dicatat dalam riwayat aktivitas tanpa kata sandi/token.
 - Draf/validasi tidak boleh menghilangkan isian diam-diam. Bedakan draf dari data yang disimpan/diterbitkan.
 - Kemampuan guru berbeda dari kesediaan membuka kelas. Izin tidak naik otomatis bersama siswa.
 - Pembayaran pelatihan bukan kelulusan asesmen. Sertifikat internal Tong Yi bukan HSK resmi.
@@ -34,6 +36,10 @@ Baca `docs/BRD.md`, `docs/DECISIONS.md`, dan `docs/IMPLEMENTATION_GUIDE.md` sebe
 - Baca `docs/BRAND_GUIDELINES.md` sebelum mengerjakan antarmuka.
 - Gunakan logo resmi `assets/brand/tong-yi-group-logo.png` tanpa mengubah warna, bentuk, teks, komposisi, atau proporsi.
 - Tema mengikuti logo: biru utama, oranye aksen, latar terang, dan tampilan profesional. Token HEX dalam panduan adalah rancangan awal, bukan keputusan kode merek resmi.
+
+## Format nominal
+
+- Semua isian nominal uang memakai awalan Rp, titik pemisah ribuan, dan koma desimal pada tampilan. Gunakan komponen Rupiah bersama; nilai yang dikirim/disimpan tetap numerik kanonis tanpa Rp atau titik ribuan. Jumlah peserta, paket, dan sesi tetap bilangan biasa.
 
 ## Cara bekerja
 
